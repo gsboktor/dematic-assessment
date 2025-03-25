@@ -1,5 +1,7 @@
 # dematic-assessment
 
+## Outline
+
 - **For Assessment One,** I built a parent class `BaseRobot` that accepts `BaseConfig` for values such as movement,
   package pick cost, and quick charge rate. `BaseRobot` also implements some shared Robot actions all other subclasses
   should have access to.
@@ -19,9 +21,7 @@
   commented in the outputs I received locally when running each test case.
 - **For each Assessment**, I wrote a suite of tests in the `__tests__` directory at the root of the project.
 
-==============================
-
-To install dependencies:
+## To install dependencies:
 
 ```bash
 bun install
@@ -43,6 +43,18 @@ or
 
 ```bash
 yarn start
+```
+
+To test
+
+```bash
+bun run test
+```
+
+or
+
+```bash
+yarn test
 ```
 
 This project was created using `bun init` in bun v1.1.27. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
