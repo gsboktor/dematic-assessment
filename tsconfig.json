@@ -9,7 +9,6 @@
 
     "moduleResolution": "node",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
     "noEmit": true,
 
     "strict": true,
