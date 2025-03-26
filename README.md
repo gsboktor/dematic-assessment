@@ -8,7 +8,7 @@
 - Subclasses “AGV, AMR, and FORK” inherit `BaseRobot` and define their `RobotType.<TYPE>` from an enum I’ve defined in
   the `types.ts` file, with other type and interface declarations.
   - If a Subclass has additional requirements or restrictions, they’re free to `override` the parent `BaseRobot` method,
-    which is what I’ve done in `AGV.ts` and `AMR.ts`
+    which is what I’ve done in `AGV.ts`
 - For additional functionality, as is the case of `FORK.ts` for a lifting operation, the `FORK` subclass will inherit
   the `BaseRobot` class, then implement a separate `LiftableRobotActions` interface with a `lift()` operation exposed.
 - The `RobotFactory` is a static class that simply instantiates any of the defined Robot subclasses.

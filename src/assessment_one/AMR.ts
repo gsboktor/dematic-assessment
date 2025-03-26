@@ -12,13 +12,4 @@ export class AMR extends BaseRobot<RobotConfig> {
       ratedFor: [BoxSizes.LG, BoxSizes.MD, BoxSizes.SM],
     });
   }
-
-  override pickPackage(size: BoxSizes): void {
-    if (!this.baseRobotConfig.ratedFor.includes(size)) {
-      console.warn(`Robot: ${this.robotType} not rated for this package size\n`);
-      return;
-    }
-
-    super.pickPackage(size);
-  }
 }

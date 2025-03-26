@@ -48,6 +48,11 @@ export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions 
   }
 
   public pickPackage(size: BoxSizes) {
+    if (!this.baseRobotConfig.ratedFor.includes(size)) {
+      console.warn(`Robot: ${this.robotType} not rated for this package size\n`);
+      return;
+    }
+
     const requiredCharge = this.battery - this.baseRobotConfig.pickCost;
     if (requiredCharge < 0) {
       console.warn('Please recharge battery');
