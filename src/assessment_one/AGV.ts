@@ -13,11 +13,7 @@ export class AGV extends BaseRobot<RobotConfig> {
   }
 
   override quickCharge(): void {
-    if (!this.baseRobotConfig.quickChargeRate) {
-      console.warn(`Robot: ${this.robotType} not configured for quick charging\n`);
-      return;
-    }
-
-    super.quickCharge();
+    console.warn(`Robot: ${this.robotType} not configured for quick charging\n`);
+    return;
   }
 }

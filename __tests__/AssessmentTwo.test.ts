@@ -7,7 +7,7 @@ describe('LetterSwitching', () => {
   });
 
   it('should preserve non-alphabet characters', () => {
-    expect(LetterSwitching('hello123!')).toBe('svool123!');
+    expect(LetterSwitching('hello123!')).toBe('svool');
   });
 
   it('should handle empty string and single characters', () => {

@@ -71,7 +71,7 @@ export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions 
   public fullCharge() {
     this.battery = this.baseRobotConfig.batteryCapacity;
     this.currentActivity = 'FULL_CHARGING';
-    this.reportStatus;
+    this.reportStatus();
   }
 
   public reportStatus() {

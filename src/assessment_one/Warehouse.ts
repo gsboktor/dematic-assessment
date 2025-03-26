@@ -1,17 +1,7 @@
-import { AGV } from './AGV';
-import { AMR } from './AMR';
 import { FORK } from './FORK';
-import { BoxSizes } from './types';
-
-export type ValidRobots = AGV | AMR | FORK;
+import { BoxSizes, ValidRobots, WarehouseActions } from './types';
 
 export const ValidActivities = ['PICK', 'QUICK_CHARGE', 'FULL_CHARGE', 'MOVE', 'LIFT'];
-
-export interface WarehouseActions<T> {
-  registerRobot: (r: T) => void;
-  statusCheck: () => void;
-  randomizeActivity: () => void;
-}
 
 export class Warehouse<TValidRobots extends ValidRobots> implements WarehouseActions<TValidRobots> {
   private activity_iteration: number = 0;
