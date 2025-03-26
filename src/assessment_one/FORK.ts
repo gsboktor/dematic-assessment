@@ -18,7 +18,7 @@ export class FORK extends BaseRobot<LiftableRobotConfig> implements LiftableRobo
     const requiredCharge = this.battery - this.baseRobotConfig.liftCost;
     if (requiredCharge < 0) {
       console.error('Please recharge battery');
-      this.battery = this.baseRobotConfig.batteryCapacity;
+      this.fullCharge();
 
       throw new Error('Battery is too low');
     }
