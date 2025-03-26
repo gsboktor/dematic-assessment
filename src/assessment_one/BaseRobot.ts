@@ -1,5 +1,14 @@
 import { BaseRobotActions, BoxSizes, RobotConfig, Robots } from './types';
 
+export const DEFAULT_CONFIG = {
+  moveCost: 3,
+  pickCost: 1,
+  quickChargeRate: 5,
+  fullChargeRate: 10,
+  batteryCapacity: 10,
+  ratedFor: [BoxSizes.LG, BoxSizes.MD, BoxSizes.SM, BoxSizes.XL],
+};
+
 export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions {
   private static robotInstances: Map<Robots, number> = new Map<Robots, number>();
 
@@ -8,14 +17,7 @@ export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions 
 
   constructor(
     protected readonly robotType: Robots,
-    protected readonly baseRobotConfig = {
-      moveCost: 3,
-      pickCost: 1,
-      quickChargeRate: 5,
-      fullChargeRate: 10,
-      batteryCapacity: 10,
-      ratedFor: [BoxSizes.LG, BoxSizes.MD, BoxSizes.SM, BoxSizes.XL],
-    } as TConfig,
+    protected readonly baseRobotConfig = { ...DEFAULT_CONFIG } as TConfig,
   ) {
     this.battery = this.baseRobotConfig.batteryCapacity;
 
@@ -39,7 +41,7 @@ export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions 
   public move() {
     const requiredCharge = this.battery - this.baseRobotConfig.moveCost;
     if (requiredCharge < 0) {
-      console.warn('Please recharge battery');
+      console.warn(`\n${this.robotType}: Please Recharge Battery`);
       return;
     }
     this.currentActivity = 'MOVE';
@@ -55,7 +57,7 @@ export class BaseRobot<TConfig extends RobotConfig> implements BaseRobotActions 
 
     const requiredCharge = this.battery - this.baseRobotConfig.pickCost;
     if (requiredCharge < 0) {
-      console.warn('Please recharge battery');
+      console.warn(`\n${this.robotType}: Please Recharge Battery`);
       return;
     }
     this.currentActivity = `PICKING_PACKAGE (${size})`;

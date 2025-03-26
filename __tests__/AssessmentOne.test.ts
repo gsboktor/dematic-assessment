@@ -28,7 +28,7 @@ describe('RobotFactory', () => {
     it('should create a FORK instance with correct configuration', () => {
       const fork = RobotFactory.createForkLift();
       expect(fork).toBeInstanceOf(FORK);
-      expect(fork['baseRobotConfig'].moveCost).toBe(2);
+      expect(fork['baseRobotConfig'].moveCost).toBe(3);
       expect(fork['baseRobotConfig'].liftCost).toBe(6);
     });
   });

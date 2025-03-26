@@ -46,6 +46,7 @@ export class Warehouse<TValidRobots extends ValidRobots> implements WarehouseAct
             } catch (e) {
               console.log('Fork Lift encountered error: ', (e as Error).message);
             }
+            break;
           }
           console.log(`This Robot ${r.getRobotType()} is not configured to LIFT`);
           break;

@@ -17,6 +17,10 @@ function AssessmentOneDriver() {
   w.randomizeActivity();
   w.randomizeActivity();
 
+  w.randomizeActivity();
+  w.randomizeActivity();
+  w.randomizeActivity();
+
   w.statusCheck();
 }
 
